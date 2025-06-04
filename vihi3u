@@ -1,0 +1,102 @@
+-- Vihieu Hub by ChatGPT
+-- Keyless & Free - UI Library: Rayfield
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source"))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Vihieu Hub | Blox Fruits",
+   LoadingTitle = "Vihieu Hub Loading...",
+   LoadingSubtitle = "by ChatGPT",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = "VihieuHub", 
+      FileName = "Settings"
+   },
+   Discord = {
+      Enabled = false
+   },
+   KeySystem = false 
+})
+
+-- Auto Farm Tab
+local FarmTab = Window:CreateTab("🌾 Auto Farm", 4483362458)
+
+FarmTab:CreateToggle({
+   Name = "Auto Farm Level",
+   CurrentValue = false,
+   Flag = "AutoFarmLevel",
+   Callback = function(Value)
+       getgenv().AutoFarmLevel = Value
+       while getgenv().AutoFarmLevel do
+           task.wait()
+           -- Code auto farm cấp độ ở đây
+       end
+   end,
+})
+
+FarmTab:CreateToggle({
+   Name = "Auto Farm Boss",
+   CurrentValue = false,
+   Flag = "AutoFarmBoss",
+   Callback = function(Value)
+       getgenv().AutoFarmBoss = Value
+       while getgenv().AutoFarmBoss do
+           task.wait()
+           -- Code farm boss ở đây
+       end
+   end,
+})
+
+-- Teleport Tab
+local TeleportTab = Window:CreateTab("🌍 Teleport", 4483362458)
+
+TeleportTab:CreateDropdown({
+   Name = "Chọn Đảo",
+   Options = {"Starter Island", "Jungle", "Marine", "Desert"},
+   CurrentOption = "Starter Island",
+   Callback = function(Option)
+       -- Teleport đến đảo tương ứng
+   end,
+})
+
+-- Misc Tab
+local MiscTab = Window:CreateTab("🛠 Misc", 4483362458)
+
+MiscTab:CreateToggle({
+   Name = "Auto Haki",
+   CurrentValue = false,
+   Callback = function(Value)
+       getgenv().AutoHaki = Value
+       while getgenv().AutoHaki do
+           task.wait()
+           -- Auto bật haki
+       end
+   end
+})
+
+MiscTab:CreateToggle({
+   Name = "Auto Stats",
+   CurrentValue = false,
+   Callback = function(Value)
+       getgenv().AutoStats = Value
+       while getgenv().AutoStats do
+           task.wait()
+           -- Auto tăng điểm stats
+       end
+   end
+})
+
+-- Chest Tab
+local ChestTab = Window:CreateTab("💰 Chest", 4483362458)
+
+ChestTab:CreateToggle({
+   Name = "Auto Chest",
+   CurrentValue = false,
+   Callback = function(Value)
+       getgenv().AutoChest = Value
+       while getgenv().AutoChest do
+           task.wait()
+           -- Auto lấy rương
+       end
+   end
+})
